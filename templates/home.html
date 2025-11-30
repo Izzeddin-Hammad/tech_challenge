@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Search</title>
+</head>
+<body>
+
+    <h1>Search Engine</h1>
+
+    <form method="GET" action="">
+        <input type="text" name="q" placeholder="Search articles..." value="{{ query|default:'' }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <hr>
+
+    {% if query %}
+        <h2>Search Results for "{{ query }}"</h2>
+        
+        {% if results %}
+            <ul>
+                {% for country in results %}
+                    <li>
+                        <h3>{{ country.country_name }}</h3>
+                        <p>{{ country.content|truncatewords:20 }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+    
+    {% else %}
+        <h2>All Countries</h2>
+        <ul>
+            {% for country in results %}
+                <li>{{ country.country_name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+</body>
+</html>
