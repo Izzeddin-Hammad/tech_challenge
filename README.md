@@ -6,4 +6,4 @@ password: test
 to access it add /admin to the url 
 
 
-Note: this assessment written in django 
+Note: this assessment is written with Django 
