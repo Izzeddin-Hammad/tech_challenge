@@ -22,7 +22,6 @@
                 {% for country in results %}
                     <li>
                         <h3>{{ country.country_name }}</h3>
-                        <p>{{ country.content|truncatewords:20 }}</p>
                     </li>
                 {% endfor %}
             </ul>
